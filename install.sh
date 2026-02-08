@@ -156,7 +156,8 @@ echo -e "$yellow打开BBR$none"
 echo "----------------------------------------------------------------"
 #sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
 #sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=lotspeed" >>/etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=lotspeed" >/etc/sysctl.conf
+#如果sysctl.conf还有其它参数，请使用echo "net.ipv4.tcp_congestion_control=lotspeed" >>/etc/sysctl.conf,避免覆盖
 #doc https://github.com/uk0/lotspeed.git
 #echo "net.core.default_qdisc = fq" >>/etc/sysctl.conf
 sysctl -p >/dev/null 2>&1
