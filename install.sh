@@ -111,7 +111,8 @@ pause
 
 # 准备工作
 apt update
-apt install -y curl wget sudo jq qrencode net-tools lsof
+apt install -y curl wget sudo jq qrencode net-tools lsof gcc g++
+
 
 # Xray官方脚本 安装最新版本
 echo
@@ -152,10 +153,11 @@ fi
 echo
 echo -e "$yellow打开BBR$none"
 echo "----------------------------------------------------------------"
-sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
-sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control = bbr" >>/etc/sysctl.conf
-echo "net.core.default_qdisc = fq" >>/etc/sysctl.conf
+#sed -i '/net.ipv4.tcp_congestion_control/d' /etc/sysctl.conf
+#sed -i '/net.core.default_qdisc/d' /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=lotspeed" >>/etc/sysctl.conf
+#doc https://github.com/uk0/lotspeed.git
+#echo "net.core.default_qdisc = fq" >>/etc/sysctl.conf
 sysctl -p >/dev/null 2>&1
 
 # 配置 VLESS_Reality 模式, 需要:端口, UUID, x25519公私钥, 目标网站
