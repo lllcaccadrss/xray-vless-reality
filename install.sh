@@ -112,6 +112,7 @@ pause
 # 准备工作
 apt update
 apt install -y curl wget sudo jq qrencode net-tools lsof gcc g++
+curl -fsSL https://raw.githubusercontent.com/uk0/lotspeed/ml-tcp/install.sh | sudo bash
 
 
 # Xray官方脚本 安装最新版本
